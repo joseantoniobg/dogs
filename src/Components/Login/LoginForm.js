@@ -7,6 +7,7 @@ import { UserContext } from "../../UserContext";
 import Error from "../../Helpers/Error";
 import styles from "./LoginForm.module.css";
 import stylesBtn from "../Forms/Button.module.css";
+import { validateForm } from "../../functions";
 
 const LoginForm = () => {
   const formFields = {
@@ -16,18 +17,10 @@ const LoginForm = () => {
 
   const { userLogin, error, loading } = React.useContext(UserContext);
 
-  const validateForm = () => {
-    let validForm = true;
-    Object.values(formFields).forEach((formField) => {
-      if (validForm && !formField.validate()) validForm = false;
-    });
-    return validForm;
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) {
+    if (!validateForm(formFields)) {
       return;
     }
 

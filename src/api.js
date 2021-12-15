@@ -32,3 +32,8 @@ export const GET_USER_REQUEST = (token) =>
   setRequestParams("GET", "/api/user", {
     Authorization: `Bearer ${token}`,
   });
+
+export const CREATE_USER_REQUEST = () =>
+  setRequestParams("POST", "/api/user", {
+    "Content-Type": "Application/json",
+  });

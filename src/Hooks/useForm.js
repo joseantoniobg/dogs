@@ -2,8 +2,15 @@ import React from "react";
 
 const validations = {
   email: {
+    // eslint-disable-next-line no-useless-escape
     regex: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
     message: "Preencha um e-mail válido",
+  },
+  password: {
+    regex:
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+    message:
+      "A senha precisa ter ao menos um caracter minúsculo, um maiúsculo um dígito, e ao menos outro caracteres de comprimento",
   },
 };
 
